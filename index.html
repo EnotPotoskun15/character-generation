@@ -10,17 +10,22 @@
 <body>
     <div id="app">
         <table>
-            <tr>
-                <td>Сила</td>
-                <td>Ловкость</td>
-                <td>Телосложение</td>
-                <td>Интелект</td>
-                <td>Мудрость</td>
-                <td>Харизма</td>
-            </tr>
-            <tr>
-                <td v-for="attribute in attributes">{{ attribute }}</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>СИЛ</th>
+                    <th>ЛОВ</th>
+                    <th>ТЕЛ</th>
+                    <th>ИНТ</th>
+                    <th>МДР</th>
+                    <th>ХАР</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="info-char" v-if="infoChar" colspan="6">Характеристки сгенерируются после нажатия кнопки</td>
+                    <td v-for="attribute in attributes">{{ attribute }}</td>
+                </tr>
+            </tbody>
         </table>
         <button @click="randomAtribute">Сгенерировать!</button>
     </div>
