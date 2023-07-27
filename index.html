@@ -9,7 +9,6 @@
 </head>
 <body>
     <div id="app">
-        <!-- <p>{{ attribute }}</p> -->
         <table>
             <tr>
                 <td>Сила</td>
@@ -20,12 +19,7 @@
                 <td>Харизма</td>
             </tr>
             <tr>
-                <td>{{ attribute }}</td>
-                <td>{{ attribute }}</td>
-                <td>{{ attribute }}</td>
-                <td>{{ attribute }}</td>
-                <td>{{ attribute }}</td>
-                <td>{{ attribute }}</td>
+                <td v-for="attribute in attributes">{{ attribute }}</td>
             </tr>
         </table>
         <button @click="randomAtribute">Сгенерировать!</button>
