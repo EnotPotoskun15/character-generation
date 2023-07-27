@@ -5,12 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <title>Character generation</title>
+    <title>Генерация ПМ</title>
 </head>
 <body>
     <div id="app">
-        <p>{{ num }}</p>
-        <button @click="randomCharacteristic">Generat!</button>
+        <!-- <p>{{ attribute }}</p> -->
+        <table>
+            <tr>
+                <td>Сила</td>
+                <td>Ловкость</td>
+                <td>Телосложение</td>
+                <td>Интелект</td>
+                <td>Мудрость</td>
+                <td>Харизма</td>
+            </tr>
+            <tr>
+                <td>{{ attribute }}</td>
+                <td>{{ attribute }}</td>
+                <td>{{ attribute }}</td>
+                <td>{{ attribute }}</td>
+                <td>{{ attribute }}</td>
+                <td>{{ attribute }}</td>
+            </tr>
+        </table>
+        <button @click="randomAtribute">Сгенерировать!</button>
     </div>
 
     <script src="main.js"></script>

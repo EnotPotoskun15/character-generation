@@ -1,11 +1,11 @@
 var app = new Vue ({
     el: '#app',
     data: {
-        num: null
+        attribute: null
     },
     methods: {
-        randomCharacteristic () {
-            this.num = Math.floor(Math.random()*12 + 6)
+        randomAtribute () {
+            this.attribute = Math.floor(Math.random()*12 + 6)
         }
     }
 })
