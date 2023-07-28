@@ -10,7 +10,7 @@ var app = new Vue ({
             this.infoChar = false;
 
             for (i = null; this.attributes.length < 6; this.attributes.push(this.i)) {
-            this.i = Math.floor(Math.random()*12 + 6);
+                this.i = Math.floor(Math.random()*12 + 6);
             }
 
             let sum = this.attributes.reduce(function(a, b){
@@ -19,17 +19,17 @@ var app = new Vue ({
 
             if (sum < 72) {
                 do {
-                    var min = 18;
+                    let min = 18;
                     for (let i = 0; this.attributes.length > i-1; i++) {
-                        var next = this.attributes[i];
+                        next = this.attributes[i];
 
                         if (min > next) {
                             min = next;
                         }
                     }
 
-                    var indexMinChar = this.attributes.indexOf(min);
-                    var newAttribute = Math.floor(Math.random()*12 + 6);
+                    let indexMinChar = this.attributes.indexOf(min);
+                    let newAttribute = Math.floor(Math.random()*12 + 6);
 
                     this.attributes[indexMinChar] = newAttribute
 
