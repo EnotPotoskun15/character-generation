@@ -12,22 +12,18 @@
         <table>
             <thead>
                 <tr>
-                    <th>СИЛ</th>
-                    <th>ЛОВ</th>
-                    <th>ТЕЛ</th>
-                    <th>ИНТ</th>
-                    <th>МДР</th>
-                    <th>ХАР</th>
+                    <th v-for="nameAttribute in nameAttributes">{{ nameAttribute }}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td class="info-char" v-if="infoChar" colspan="6">Характеристки сгенерируются после нажатия кнопки</td>
-                    <td v-for="attribute in attributes">{{ attribute }}</td>
+                    <td v-for="(randomAtribute, index) in randomAtributes">{{ randomAtribute }}
+                        <span class="modifiers"> (<span v-if="modifiersAttributes[index] > 0">+</span>{{ modifiersAttributes[index] }})</span></td>                    
                 </tr>
             </tbody>
         </table>
-        <button @click="randomAtribute">Сгенерировать!</button>
+        <button @click="gen">Сгенерировать!</button>
     </div>
 
     <script src="main.js"></script>

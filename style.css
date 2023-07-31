@@ -1,3 +1,10 @@
+/* ATTRIBUTES */
+
+.modifiers, .modifiers>span {
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
 /* TABLE */
 
 .info-char {
@@ -7,7 +14,7 @@
 table {
     border-collapse: collapse;
     margin-bottom: 10px;
-    width: 500px;
+    width: 550px;
 }
 
 th, td {
