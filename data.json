@@ -1,0 +1,8 @@
+{
+    "armors": [
+        {"class": "light", "armorClass": 11},
+        {"class": "midle", "armorClass": 13},
+        {"class": "heavy", "armorClass": 16}
+    ],
+    "nameAttributes": ["СИЛ", "ЛОВ", "ТЕЛ", "ИНТ", "МДР", "ХАР"]
+}

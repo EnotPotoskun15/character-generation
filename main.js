@@ -1,53 +1,51 @@
+/* После выбора доспеха не работает генерация. Если обнулить selectArmor, то генерация снова работает */
+
+var dataJson = "/data.json"
+
 var app = new Vue ({
     el: '#app',
     data: {
         generation: false,
         infoChar: true,
-        nameAttributes: ["СИЛ", "ЛОВ", "ТЕЛ", "ИНТ", "МДР", "ХАР"]
+        nameAttributes: [],
+        selectArmor: null,
+        armors: []
+    },
+    mounted() {
+        var self = this
+        $.getJSON(dataJson, function(data) {
+            self.armors = data.armors;
+            self.nameAttributes = data.nameAttributes;
+        });
     },
     methods: {
         gen() {
             return this.generation = true;
+        },
+        generateKD() {
+            this.selectArmor = selectArmor;
         }
     },
     computed: {
         randomAtributes () {
             if (this.generation) {
 
-                this.attributes = [];
                 this.infoChar = false;
 
-                for (i = null; this.attributes.length < 6; this.attributes.push(this.i)) {
-                    this.i = Math.floor(Math.random()*12 + 6);
-                }
+                do {
+                    this.attributes = [];
 
-                let sum = this.attributes.reduce(function(a, b){
-                    return a + b
-                    }, 0);
-
-                if (sum < 72) {
-                    do {
-                        let min = 18;
-                        for (let i = 0; this.attributes.length > i-1; i++) {
-                            next = this.attributes[i];
-
-                            if (min > next) {
-                                min = next;
-                            }
-                        }
-
-                        let indexMinChar = this.attributes.indexOf(min);
-                        let newAttribute = Math.floor(Math.random()*12 + 6);
-
-                        this.attributes[indexMinChar] = newAttribute
-
-                        newSum = this.attributes.reduce(function(a, b){
-                            return a + b
-                            }, 0);
-                    } while (newSum < 72);
-                }
+                    for (i = null; this.attributes.length < 6; this.attributes.push(this.i)) {
+                        this.i = Math.floor(Math.random()*12 + 6);
+                    }
+            
+                    sum = this.attributes.reduce(function(a, b){
+                        return a + b
+                        }, 0);
+                } while (sum < 72);
             }
-            return this.attributes;
+
+                return this.attributes;
         },
         modifiersAttributes() {
             if(this.generation && !this.endComputed) {
@@ -61,6 +59,17 @@ var app = new Vue ({
                 }
             }
             return this.modifiers;            
+        },
+        kd() {
+            // if (this.modifiersAttributes) {
+            //     if (this.selectArmor) {
+            //         return this.newKd = this.selectArmor + this.modifiersAttributes[1];
+            //     }else {
+            //         return this.newKd = 10 + this.modifiersAttributes[1];
+            //     }
+            // }else {
+            //     return this.kd = '';
+            // };
         },
         endComputed() {
             if (this.generation) {
